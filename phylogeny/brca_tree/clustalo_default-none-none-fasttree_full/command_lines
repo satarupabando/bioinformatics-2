@@ -1,0 +1,2 @@
+Mon Nov  7 14:55:46 2016	e903056f141915a14a60010d4c9a0951	False	/Users/csyk2/anaconda3/envs/py27/bin/ete3 -w standard_fasttree -a data/brca_modified.fasta -o brca_tree/ --clearall
+Mon Nov  7 16:59:22 2016	702fa7bee56f5a8981ef8737b0c8b6e7	False	/Users/csyk2/anaconda3/envs/py27/bin/ete3 -w standard_fasttree -a data/brca_modified.fasta -o brca_tree/ --clearall

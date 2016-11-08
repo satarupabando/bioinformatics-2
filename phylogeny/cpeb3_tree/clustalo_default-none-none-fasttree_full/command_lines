@@ -1,0 +1,1 @@
+Mon Nov  7 19:16:27 2016	43749fb511ba42fafc0d107ec517b448	False	/Users/csyk2/anaconda3/envs/py27/bin/ete3 -w standard_fasttree -a data/cpeb3_modified.fasta -o cpeb3_tree/ --clearall
