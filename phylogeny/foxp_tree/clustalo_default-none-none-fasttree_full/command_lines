@@ -1,2 +1,0 @@
-Mon Nov  7 16:59:35 2016	24c133d3aa0e83b3cc23387846e293fe	False	/Users/csyk2/anaconda3/envs/py27/bin/ete3 -w standard_fasttree -a data/brca_modified.fasta -o foxp_tree/ --clearall
-Mon Nov  7 17:01:24 2016	1038452b97f0d7ae14f5eebc935bc9ab	False	/Users/csyk2/anaconda3/envs/py27/bin/ete3 -w standard_fasttree -a data/foxp_modified.fasta -o foxp_tree/ --clearall

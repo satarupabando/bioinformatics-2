@@ -1,4 +1,0 @@
-#!/bin/sh
- (echo R > /Users/csyk2/Python/bioinformatics/phylogeny/foxp_tree/tasks/5729ceb244b0e8e40e89914d79062e1a/__status__ && date +'%a %b %d %H:%M:%S %Y' > /Users/csyk2/Python/bioinformatics/phylogeny/foxp_tree/tasks/5729ceb244b0e8e40e89914d79062e1a/__time__) &&
- (cd /Users/csyk2/Python/bioinformatics/phylogeny/foxp_tree/tasks/5729ceb244b0e8e40e89914d79062e1a && export OMP_NUM_THREADS=1; /Users/csyk2/anaconda3/envs/py27/bin/ete3_apps/bin/FastTree -nopr  -pseudo  -mlacc 3 -slownni  /Users/csyk2/Python/bioinformatics/phylogeny/foxp_tree/input/024de00b4d67feb361a8bb62baf8050d.201  && (echo D > /Users/csyk2/Python/bioinformatics/phylogeny/foxp_tree/tasks/5729ceb244b0e8e40e89914d79062e1a/__status__; ) || (echo E > /Users/csyk2/Python/bioinformatics/phylogeny/foxp_tree/tasks/5729ceb244b0e8e40e89914d79062e1a/__status__; ));
- date +'%a %b %d %H:%M:%S %Y' >> /Users/csyk2/Python/bioinformatics/phylogeny/foxp_tree/tasks/5729ceb244b0e8e40e89914d79062e1a/__time__; 
