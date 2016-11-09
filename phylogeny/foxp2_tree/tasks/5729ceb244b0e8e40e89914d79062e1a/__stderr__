@@ -1,0 +1,23 @@
+FastTree Version 2.1.8 Double precision (No SSE3), OpenMP (1 threads)
+Alignment: /Users/csyk2/Python/bioinformatics/phylogeny/foxp2_tree/input/024de00b4d67feb361a8bb62baf8050d.201
+Amino acid distances: BLOSUM45 Joins: balanced Support: SH-like 1000
+Search: Normal +NNI +SPR (2 rounds range 10) +ML-NNI opt-each=3
+TopHits: 1.00*sqrtN close=default refresh=0.80
+ML Model: Jones-Taylor-Thorton, CAT approximation with 20 rate categories
+Pseudocount weight for comparing sequences with little overlap: 1.000
+Ignored unknown character X (seen 1341 times)
+Initial topology in 0.07 seconds
+Refining topology: 25 rounds ME-NNIs, 2 rounds ME-SPRs, 13 rounds ML-NNIs
+Total branch-length 1.216 after 0.64 sec
+ML-NNI round 1: LogLk = -9489.927 NNIs 40 max delta 11.22 Time 4.73
+Switched to using 20 rate categories (CAT approximation)
+Rate categories were divided by 0.792 so that average rate = 1.0
+CAT-based log-likelihoods may not be comparable across runs
+Use -gamma for approximate but comparable Gamma(20) log-likelihoods
+ML-NNI round 2: LogLk = -8693.576 NNIs 27 max delta 5.23 Time 9.81
+ML-NNI round 3: LogLk = -8683.350 NNIs 21 max delta 6.94 Time 13.72
+ML-NNI round 4: LogLk = -8683.159 NNIs 7 max delta 0.00 Time 17.61
+Turning off heuristics for final round of ML NNIs (converged)
+ML-NNI round 5: LogLk = -8680.973 NNIs 9 max delta 1.52 Time 21.32 (final)
+Optimize all lengths: LogLk = -8680.966 Time 21.77
+Total time: 23.32 seconds Unique: 80/83 Bad splits: 0/77

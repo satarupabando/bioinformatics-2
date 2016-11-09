@@ -1,0 +1,1 @@
+Tue Nov  8 19:50:12 2016	e8845b38d0c233b4feb5301395033987	False	/Users/csyk2/anaconda3/bin/ete3 -a data/foxp2_modified.fasta -o foxp2_bootstrap/ --clearall -w full_ultrafast_modeltest_bootstrap

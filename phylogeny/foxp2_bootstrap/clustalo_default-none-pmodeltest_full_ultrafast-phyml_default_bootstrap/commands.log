@@ -1,0 +1,1 @@
+Clustal-Omega	024de00b4d67feb361a8bb62baf8050d	clustalo---threads-1	619da0b2228ff6523e988088f2d3fff6	/Users/csyk2/.etetoolkit/ext_apps-latest/bin/clustalo --threads 1 -o clustalo_alg.fasta --outfmt fa -i /Users/csyk2/Python/bioinformatics/phylogeny/foxp2_bootstrap/input/15721ed8094d32fa5ebedb026e685ee8.100

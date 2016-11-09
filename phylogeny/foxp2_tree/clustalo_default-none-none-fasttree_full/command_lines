@@ -1,0 +1,7 @@
+Tue Nov  8 12:44:49 2016	69bb1bc0e6b2fa72fc91331b69b63940	False	/Users/csyk2/anaconda3/bin/ete3 -w standard_fasttree -a data/foxp2_modified.fasta -o foxp2_tree/ --clearall
+Tue Nov  8 12:45:24 2016	f66b057f0aac72f48d33cd3ad3b535b3	False	/Users/csyk2/anaconda3/bin/ete3 -w standard_fasttree -a data/foxp2_modified.fasta -o foxp2_tree/ --clearall
+Tue Nov  8 12:46:35 2016	7c94375865887c8ee09fb4d7aadd1c7c	False	/Users/csyk2/anaconda3/bin/ete3 -w standard_fasttree -a data/foxp2_modified.fasta -o foxp2_tree/ --clearall
+Tue Nov  8 12:47:24 2016	c21798db2a17b54b277f976b76435fc3	False	/Users/csyk2/anaconda3/bin/ete3 -w standard_fasttree -a data/foxp2_modified.fasta -o foxp2_tree/ --clearall
+Tue Nov  8 12:47:40 2016	9872878081bed3c47149783690e8c4d7	False	/Users/csyk2/anaconda3/bin/ete3 -w standard_fasttree -a data/foxp2_modified.fasta -o foxp2_tree/ --clearall
+Tue Nov  8 12:48:24 2016	b4b4bb9b212bd5537f996bffbf7ef247	False	/Users/csyk2/anaconda3/bin/ete3 -w standard_fasttree -a data/foxp2_modified.fasta -o foxp2_tree/ --clearall
+Tue Nov  8 12:48:59 2016	2f5b82142a006770b8205aa4610ee563	False	/Users/csyk2/anaconda3/envs/py27/bin/ete3 -w standard_fasttree -a data/foxp2_modified.fasta -o foxp2_tree/ --clearall
