@@ -25,3 +25,12 @@ Thumbs.db
 venv
 node_modules
 .sass-cache
+
+# Ipynb_checkpoints
+.Ipynb_checkpoints
+
+.*.swn
+
+
+.*.swp
+
