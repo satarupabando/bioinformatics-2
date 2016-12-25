@@ -1,0 +1,83 @@
+Verily production GATK pipeline
+
+Reference: hg38.genome.fa
+dbSNP: v146 on b38 downloaded from NCBI
+1000 Genomes Phase 3 callset:
+1000G_ALL.wgs.phase3_shapeit2_mvncall_integrated_v5b.20130502.sites.hg38.vcf downloaded
+from 1000G FTP
+
+
+BWA version: 0.7.12
+Samtools version: 1.1
+Picard version: 2.1.0
+GATK version: 3.5
+
+
+# BWA
+
+bwa mem -t 32 fastq1.gz fastq2.gz
+  | samtools view -u -
+  | samtools sort -@ 12 -O bam -T sorted.bam.sort_tmp -o sorted.bam -
+
+# Mark Duplicates
+
+java -Xmx12G -jar picard.jar MarkDuplicates INPUT=sorted.bam
+OUTPUT=sorted.deduped.bam ASSUME_SORTED=true CREATE_INDEX=true
+MAX_RECORDS_IN_RAM=2000000 METRICS_FILE=MarkDuplicates_metrics.txt
+REMOVE_DUPLICATES=false
+
+# Indel realignment
+
+java -jar CommandLineGATK_deploy.jar -Xmx4G -R hg38.genome.fa -ip 50 -T
+RealignerTargetCreator -I sorted.deduped.merged.bam -known
+1000G_ALL.wgs.phase3_shapeit2_mvncall_integrated_v5b.20130502.sites.hg38.vcf -o
+realignment_targets.interval_list -nt 8 -mismatch 0.0
+java -jar CommandLineGATK_deploy.jar -Xmx4G -R hg38.genome.fa -ip 50 -T
+IndelRealigner -I sorted.deduped.merged.bam -targetIntervals
+realignment_targets.chr1.interval_list -known
+1000G_ALL.wgs.phase3_shapeit2_mvncall_integrated_v5b.20130502.sites.hg38.vcf
+--consensusDeterminationModel KNOWNS_ONLY -o sorted.deduped.merged.realigned.bam
+
+# Base recalibration
+
+java -jar CommandLineGATK_deploy.jar -Xmx4G -R hg38.genome.fa -T BaseRecalibrator -I
+sorted.deduped.merged.realigned.bam -knownSites dbsnp_146.hg38.vcf -o
+base_recalibration.table -nct 32 --useOriginalQualities --disable_indel_quals -cov
+ReadGroupCovariate -cov QualityScoreCovariate -cov CycleCovariate -cov
+ContextCovariate
+java -jar CommandLineGATK_deploy.jar -Xmx4G -R hg38.genome.fa -T PrintReads -nct 8 -I
+sorted.deduped.merged.realigned.bam -BQSR base_recalibration.table
+--disable_indel_quals --emit_original_quals -o
+sorted.deduped.merged.realigned.recalibrated.bam
+
+# HaplotypeCaller
+
+java -jar CommandLineGATK_deploy.jar -Xmx4G -R hg38.genome.fa -ip 50 -T
+HaplotypeCaller -I sorted.deduped.merged.realigned.recalibrated.bam -ERC GVCF -o
+g.vcf --annotation QualByDepth
+java -jar CommandLineGATK_deploy.jar -Xmx4G -R hg38.genome.fa -T GenotypeGVCFs -o
+raw_calls.vcf -nt 8 -D dbsnp_146.hg38.vcf --variant g.vcf
+
+VQSR
+
+java -jar CommandLineGATK_deploy.jar -Xmx20G -R hg38.genome.fa -T VariantRecalibrator
+--max_attempts 4 -input raw_calls.vcf
+-resource:ALL_1000G_phase3,known=false,training=true,truth=true,prior=12.0
+1000G_ALL.wgs.phase3_shapeit2_mvncall_integrated_v5b.20130502.sites.hg38.vcf
+-resource:dbsnp,known=true,training=false,truth=false,prior=2.0 dbsnp_146.hg38.vcf
+-an DP -an QD -an FS -an SOR -an MQ -an MQRankSum -an ReadPosRankSum -mode SNP -nt 4
+-tranche 99.5 -recalFile snps.recal -tranchesFile snps.tranches -allPoly
+java -jar CommandLineGATK_deploy.jar -Xmx20G -R hg38.genome.fa -T ApplyRecalibration
+-input raw_calls.vcf -mode SNP --ts_filter_level 99.5 -recalFile snps.recal
+-tranchesFile snps.tranches -o recal.snps.raw.indels.vcf
+java -jar CommandLineGATK_deploy.jar -Xmx20G -R hg38.genome.fa -T VariantRecalibrator
+--max_attempts 4 -input recal.snps.raw.indels.vcf
+-resource:ALL_1000G_phase3,known=false,training=true,truth=true,prior=12.0
+1000G_ALL.wgs.phase3_shapeit2_mvncall_integrated_v5b.20130502.sites.hg38.vcf
+-resource:dbsnp,known=true,training=false,truth=false,prior=2.0 dbsnp_146.hg38.vcf
+-an QD -an DP -an FS -an SOR -an MQRankSum -an ReadPosRankSum -mode INDEL -nt 4
+-tranche 99.0 -recalFile indels.recal -tranchesFile indels.tranches -allPoly
+java -jar CommandLineGATK_deploy.jar -Xmx20G -R hg38.genome.fa -T ApplyRecalibration
+-input recal.snps.raw.indels.vcf -mode INDEL -ts_filter_level 99.0 -recalFile
+indels.recal -tranchesFile indels.tranches -o final.vcf
+
