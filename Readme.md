@@ -4,13 +4,13 @@ Here is a collections of scripts for Bioinformatics data analysis:
 
 1. Bioinformatics_Data_Skills
 
-   In this folder, I went through all the examples and practice in <Bioinformatics Data Skills> by Vine Buffalo including working with sequence data, range data, alignment data and shell scripting etc.
+   In this folder, I went through all the examples and practice in *Bioinformatics Data Skills* by Vine Buffalo including working with sequence data, range data, alignment data and shell scripting etc.
 
 2. phylogeny
 
    This is a class project in which I explored the phylogeny tree. 
 
-   From class <Fundamental Models and ALgorithms in Bioinformatics>
+   From class *Fundamental Models and ALgorithms in Bioinformatics*
 
 3. proteome_analysis
 
