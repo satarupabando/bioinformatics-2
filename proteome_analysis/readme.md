@@ -6,3 +6,5 @@
 **Source**: the datasets are provided by @kajot from kaggle https://www.kaggle.com/piotrgrabo/breastcancerproteomes
 ### Goal
 My goal here is to explore this dataset to check if I could reproduce previous research. More importantly, I would like to explore t-sne algorithm in details to visualize how the t-sne seperate different clusters. This is a important tool for Drop-Seq data analysis (http://www.cell.com/cell/abstract/S0092-8674(15)00549-8) as an early stage to explore the potential molecular mechanisms, which will help me when my thesis project moves forward to the Drop-Seq stage.
+
+<movie3.gif>
