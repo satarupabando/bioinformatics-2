@@ -7,5 +7,5 @@
 ### Goal
 My goal here is to explore this dataset to check if I could reproduce previous research. More importantly, I would like to explore t-sne algorithm in details to visualize how the t-sne seperate different clusters. This is a important tool for Drop-Seq data analysis (http://www.cell.com/cell/abstract/S0092-8674(15)00549-8) as an early stage to explore the potential molecular mechanisms, which will help me when my thesis project moves forward to the Drop-Seq stage.
 ### Result
-With carefully selecting the correct genes as our feature sets, the prediction score of the SVM model that we trained is about 0.85 score. And here is a visualization of how seperated different patient cluster are with t-sne transformation.
+With carefully selecting the correct genes as our feature sets, the prediction score of the SVM model that we trained is about 0.85. And here is a visualization of how seperated different patient cluster are with t-sne transformation.
 <img src="movie3.gif">
