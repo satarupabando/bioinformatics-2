@@ -2,6 +2,8 @@
 .Rhistory
 .RData
 .Ruserdata
+.sam
+.gz
 
 # Folder view configuration files
 .DS_Store
